@@ -10,7 +10,7 @@ function App() {
   }
   const onEvaluate = () => {
     try {
-      const sanitizedInput = input.replace(/00/g, '0');
+      const sanitizedInput = input.replace(/\b0+(?=\d)/g, '');
       setInput(eval(sanitizedInput).toString());
     }
     catch (error) {
